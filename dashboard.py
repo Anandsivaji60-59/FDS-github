@@ -6,8 +6,7 @@ import json
 
 # Load datasets
 raw_data_path = "https://raw.githubusercontent.com/achyuthisnew/FDS_VA/refs/heads/main/Product_Purchase_Prediction_Synthetic%20(1).csv"
-preprocessed_data_path = "https://raw.githubusercontent.com/achyuthisnew/FDS_VA/refs/heads/main/Preprocessed_Product_Purchase_Prediction%20(1).csv"
-
+preprocessed_data_path = "https://raw.githubusercontent.com/Anandsivaji60-59/FDS-github/refs/heads/main/preprocessed_data.csv"
 # Read raw and preprocessed data
 try:
     df_raw = pd.read_csv(raw_data_path)
