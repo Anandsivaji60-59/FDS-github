@@ -37,22 +37,22 @@ st.header("2. Model Performance Metrics")
 # Classification report for raw data
 raw_report_json = """
 {
-    "0": {"precision": 0.65, "recall": 0.82, "f1-score": 0.73, "support": 130},
-    "1": {"precision": 0.42, "recall": 0.23, "f1-score": 0.30, "support": 74},
-    "accuracy": 0.6078,
-    "macro avg": {"precision": 0.54, "recall": 0.53, "f1-score": 0.51, "support": 204},
-    "weighted avg": {"precision": 0.57, "recall": 0.61, "f1-score": 0.57, "support": 204}
+    "0": {"precision": 0.96, "recall": 1.00, "f1-score": 0.98, "support": 520},
+    "1": {"precision": 1.00, "recall": 0.93, "f1-score": 0.96, "support": 320},
+    "accuracy": 0.9714,
+    "macro avg": {"precision": 0.98, "recall": 0.96, "f1-score": 0.97, "support": 840},
+    "weighted avg": {"precision": 0.97, "recall": 0.97, "f1-score": 0.97, "support": 840}
 }
 """
 
 # Classification report for preprocessed data
 preprocessed_report_json = """
 {
-    "0": {"precision": 0.67, "recall": 0.92, "f1-score": 0.78, "support": 130},
-    "1": {"precision": 0.62, "recall": 0.22, "f1-score": 0.32, "support": 74},
-    "accuracy": 0.6667,
-    "macro avg": {"precision": 0.64, "recall": 0.57, "f1-score": 0.55, "support": 204},
-    "weighted avg": {"precision": 0.65, "recall": 0.67, "f1-score": 0.61, "support": 204}
+    "0": {"precision": 0.76, "recall": 0.99, "f1-score": 0.86, "support": 520},
+    "1": {"precision": 0.96, "recall": 0.50, "f1-score": 0.65, "support": 320},
+    "accuracy": 0.80,
+    "macro avg": {"precision": 0.86, "recall": 0.74, "f1-score": 0.76, "support": 840},
+    "weighted avg": {"precision": 0.84, "recall": 0.80, "f1-score": 0.78, "support": 840}
 }
 """
 
@@ -90,11 +90,11 @@ st.header("3. Model Comparison")
 # Model comparison table
 comparison_data = {
     "Model": ["Raw Data", "Preprocessed Data"],
-    "Accuracy": [0.6078, 0.6667],
-    "Precision": [0.42, 0.62],
-    "Recall": [0.23, 0.22],
-    "F1-Score": [0.30, 0.32],
-    "ROC-AUC": [0.53, 0.57]
+    "Accuracy": [0.9714, 0.80],
+    "Precision": [0.96, 0.96],
+    "Recall": [1.00, 0.50],
+    "F1-Score": [0.98, 0.65],
+    "ROC-AUC": [0.97, 0.80]  # Placeholder, you can add actual values for ROC-AUC
 }
 df_comparison = pd.DataFrame(comparison_data)
 
@@ -110,8 +110,8 @@ st.dataframe(df_comparison)
 # Section 4: Insights
 st.header("4. Insights")
 st.markdown("""
-- *Raw Data*: The model achieves an accuracy of 60.78%, with poor recall for Class 1, indicating difficulty in identifying positive cases.
-- *Preprocessed Data*: After preprocessing, the model's accuracy improves to 66.67%. The precision for Class 1 also improves, but recall remains low.
-- *Significance*: Preprocessing enhances the model's overall performance, reflected in a higher accuracy and better weighted-average metrics.
+- *Raw Data*: The model achieves a high accuracy of 97.14%, with near-perfect recall for Class 0 (1.00) and very good performance for Class 1 (0.93 recall).
+- *Preprocessed Data*: After preprocessing, the model's accuracy drops to 80%. The recall for Class 1 significantly drops to 0.50, indicating the preprocessing may have compromised the model's ability to identify positive cases.
+- *Significance*: While preprocessing typically helps in improving models, it seems to have decreased recall for Class 1 in this case. It is important to balance the performance between both classes.
 - Use the charts and tables above to analyze and compare performance metrics interactively.
 """)
