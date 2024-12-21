@@ -16,7 +16,7 @@ except Exception as e:
     st.stop()
 
 # Title and Sidebar
-st.title("Interactive Dashboard for Product Purchase Prediction")
+st.title("Predicting the Success of Personalized Movie Recommendations")
 st.sidebar.title("Options")
 
 # Section 1: Data Distribution Visualization
